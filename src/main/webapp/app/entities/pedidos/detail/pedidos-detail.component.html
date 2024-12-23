@@ -1,0 +1,38 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (pedidos(); as pedidosRef) {
+      <div>
+        <h2 data-cy="pedidosDetailsHeading"><span jhiTranslate="siglo21App.pedidos.detail.title">Pedidos</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ pedidosRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="siglo21App.pedidos.descripcion">Descripcion</span></dt>
+          <dd>
+            <span>{{ pedidosRef.descripcion }}</span>
+          </dd>
+          <dt><span jhiTranslate="siglo21App.pedidos.estado">Estado</span></dt>
+          <dd>
+            <span>{{ pedidosRef.estado }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/pedidos', pedidosRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

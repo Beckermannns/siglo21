@@ -1,0 +1,22 @@
+{
+  "annotations": {
+    "changelogDate": "20241223044940"
+  },
+  "fields": [
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "estado",
+      "fieldType": "Boolean"
+    }
+  ],
+  "name": "Pedidos",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [],
+  "searchEngine": "no",
+  "service": "no"
+}

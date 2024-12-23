@@ -1,0 +1,25 @@
+{
+  "siglo21App": {
+    "pedidos": {
+      "home": {
+        "title": "Pedidos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Pedidos",
+        "createOrEditLabel": "Crear o editar Pedidos",
+        "notFound": "Ningún Pedidos encontrado"
+      },
+      "created": "Un nuevo Pedidos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Pedidos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Pedidos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Pedidos {{ id }}?"
+      },
+      "detail": {
+        "title": "Pedidos"
+      },
+      "id": "ID",
+      "descripcion": "Descripcion",
+      "estado": "Estado"
+    }
+  }
+}

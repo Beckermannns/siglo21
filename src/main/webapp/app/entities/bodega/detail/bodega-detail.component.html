@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (bodega(); as bodegaRef) {
+      <div>
+        <h2 data-cy="bodegaDetailsHeading"><span jhiTranslate="siglo21App.bodega.detail.title">Bodega</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="global.field.id">ID</span></dt>
+          <dd>
+            <span>{{ bodegaRef.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="siglo21App.bodega.producto">Producto</span></dt>
+          <dd>
+            <span>{{ bodegaRef.producto }}</span>
+          </dd>
+          <dt><span jhiTranslate="siglo21App.bodega.cantidad">Cantidad</span></dt>
+          <dd>
+            <span>{{ bodegaRef.cantidad }}</span>
+          </dd>
+          <dt><span jhiTranslate="siglo21App.bodega.descripcion">Descripcion</span></dt>
+          <dd>
+            <span>{{ bodegaRef.descripcion }}</span>
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+        </button>
+
+        <button type="button" [routerLink]="['/bodega', bodegaRef.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

@@ -1,0 +1,26 @@
+{
+  "siglo21App": {
+    "bodega": {
+      "home": {
+        "title": "Bodegas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Bodega",
+        "createOrEditLabel": "Crear o editar Bodega",
+        "notFound": "Ningún Bodegas encontrado"
+      },
+      "created": "Un nuevo Bodega ha sido creado con el identificador {{ param }}",
+      "updated": "Un Bodega ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Bodega ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Bodega {{ id }}?"
+      },
+      "detail": {
+        "title": "Bodega"
+      },
+      "id": "ID",
+      "producto": "Producto",
+      "cantidad": "Cantidad",
+      "descripcion": "Descripcion"
+    }
+  }
+}

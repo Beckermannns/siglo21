@@ -1,0 +1,26 @@
+{
+  "siglo21App": {
+    "productos": {
+      "home": {
+        "title": "Productos",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Productos",
+        "createOrEditLabel": "Crear o editar Productos",
+        "notFound": "Ningún Productos encontrado"
+      },
+      "created": "Un nuevo Productos ha sido creado con el identificador {{ param }}",
+      "updated": "Un Productos ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Productos ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Productos {{ id }}?"
+      },
+      "detail": {
+        "title": "Productos"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "cantidad": "Cantidad",
+      "precio": "Precio"
+    }
+  }
+}

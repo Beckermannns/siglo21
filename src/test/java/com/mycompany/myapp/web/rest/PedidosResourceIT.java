@@ -275,8 +275,6 @@ class PedidosResourceIT {
         Pedidos partialUpdatedPedidos = new Pedidos();
         partialUpdatedPedidos.setId(pedidos.getId());
 
-        partialUpdatedPedidos.descripcion(UPDATED_DESCRIPCION).estado(UPDATED_ESTADO);
-
         restPedidosMockMvc
             .perform(
                 patch(ENTITY_API_URL_ID, partialUpdatedPedidos.getId())

@@ -1,0 +1,26 @@
+{
+  "siglo21App": {
+    "ventas": {
+      "home": {
+        "title": "Ventas",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Ventas",
+        "createOrEditLabel": "Crear o editar Ventas",
+        "notFound": "Ningún Ventas encontrado"
+      },
+      "created": "Un nuevo Ventas ha sido creado con el identificador {{ param }}",
+      "updated": "Un Ventas ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Ventas ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Ventas {{ id }}?"
+      },
+      "detail": {
+        "title": "Ventas"
+      },
+      "id": "ID",
+      "descripcion": "Descripcion",
+      "cantidad": "Cantidad",
+      "total": "Total"
+    }
+  }
+}

@@ -1,23 +1,23 @@
 import { IPedidos, NewPedidos } from './pedidos.model';
 
 export const sampleWithRequiredData: IPedidos = {
-  id: 11494,
-  descripcion: 'king',
+  id: 30100,
+  descripcion: 'even tightly',
 };
 
 export const sampleWithPartialData: IPedidos = {
-  id: 24053,
-  descripcion: 'wombat meaningfully versus',
+  id: 24450,
+  descripcion: 'after markup',
 };
 
 export const sampleWithFullData: IPedidos = {
-  id: 1323,
-  descripcion: 'blah',
+  id: 24961,
+  descripcion: 'anti ouch',
   estado: true,
 };
 
 export const sampleWithNewData: NewPedidos = {
-  descripcion: 'likewise',
+  descripcion: 'excluding athwart crafty',
   id: null,
 };
 

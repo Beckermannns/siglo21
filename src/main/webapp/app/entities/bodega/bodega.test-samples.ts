@@ -1,30 +1,30 @@
 import { IBodega, NewBodega } from './bodega.model';
 
 export const sampleWithRequiredData: IBodega = {
-  id: 25474,
-  producto: 'minty wildly minor',
-  cantidad: 2533,
-  descripcion: 'oh pillbox fond',
+  id: 14350,
+  producto: 'nice furthermore',
+  cantidad: 26752,
+  descripcion: 'ugh famously excepting',
 };
 
 export const sampleWithPartialData: IBodega = {
-  id: 31553,
-  producto: 'beside broadly',
-  cantidad: 18741,
-  descripcion: 'equatorial where mmm',
+  id: 26650,
+  producto: 'acknowledge give midst',
+  cantidad: 17042,
+  descripcion: 'sushi ill-fated',
 };
 
 export const sampleWithFullData: IBodega = {
-  id: 30509,
-  producto: 'mmm yowza',
-  cantidad: 4918,
-  descripcion: 'wallaby incidentally',
+  id: 5113,
+  producto: 'sway zowie toward',
+  cantidad: 2680,
+  descripcion: 'ultimate',
 };
 
 export const sampleWithNewData: NewBodega = {
-  producto: 'meanwhile so yippee',
-  cantidad: 6628,
-  descripcion: 'last versus quickly',
+  producto: 'quarrelsomely phooey dividend',
+  cantidad: 32745,
+  descripcion: 'truly merrily upset',
   id: null,
 };
 

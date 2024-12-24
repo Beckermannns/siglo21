@@ -1,0 +1,92 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-compras-heading" data-cy="ComprasCreateUpdateHeading" jhiTranslate="siglo21App.compras.home.createOrEditLabel">
+        Crear o editar Compras
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="siglo21App.compras.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        @let detalleRef = editForm.get('detalle')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_detalle" jhiTranslate="siglo21App.compras.detalle">Detalle</label>
+          <input type="text" class="form-control" name="detalle" id="field_detalle" data-cy="detalle" formControlName="detalle" />
+          @if (detalleRef.invalid && (detalleRef.dirty || detalleRef.touched)) {
+            <div>
+              @if (editForm.get('detalle')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Este campo es obligatorio.</small>
+              }
+              @if (editForm.get('detalle')?.errors?.maxlength) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: '255' }"
+                  >Este campo no puede superar más de 255 caracteres.</small
+                >
+              }
+            </div>
+          }
+        </div>
+
+        @let cantidadRef = editForm.get('cantidad')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_cantidad" jhiTranslate="siglo21App.compras.cantidad">Cantidad</label>
+          <input type="number" class="form-control" name="cantidad" id="field_cantidad" data-cy="cantidad" formControlName="cantidad" />
+          @if (cantidadRef.invalid && (cantidadRef.dirty || cantidadRef.touched)) {
+            <div>
+              @if (editForm.get('cantidad')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Este campo es obligatorio.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('cantidad')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >Este campo debe ser un número.</small
+              >
+            </div>
+          }
+        </div>
+
+        @let precioRef = editForm.get('precio')!;
+        <div class="mb-3">
+          <label class="form-label" for="field_precio" jhiTranslate="siglo21App.compras.precio">Precio</label>
+          <input type="number" class="form-control" name="precio" id="field_precio" data-cy="precio" formControlName="precio" />
+          @if (precioRef.invalid && (precioRef.dirty || precioRef.touched)) {
+            <div>
+              @if (editForm.get('precio')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">Este campo es obligatorio.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('precio')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >Este campo debe ser un número.</small
+              >
+            </div>
+          }
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

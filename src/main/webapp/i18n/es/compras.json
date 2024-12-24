@@ -1,0 +1,26 @@
+{
+  "siglo21App": {
+    "compras": {
+      "home": {
+        "title": "Compras",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Compras",
+        "createOrEditLabel": "Crear o editar Compras",
+        "notFound": "Ningún Compras encontrado"
+      },
+      "created": "Un nuevo Compras ha sido creado con el identificador {{ param }}",
+      "updated": "Un Compras ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Compras ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Compras {{ id }}?"
+      },
+      "detail": {
+        "title": "Compras"
+      },
+      "id": "ID",
+      "detalle": "Detalle",
+      "cantidad": "Cantidad",
+      "precio": "Precio"
+    }
+  }
+}

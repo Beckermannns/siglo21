@@ -44,9 +44,7 @@ public class PedidosResource {
      * {@code POST  /pedidos} : Create a new pedidos.
      *
      * @param pedidos the pedidos to create.
-     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with
-     *         body the new pedidos, or with status {@code 400 (Bad Request)} if the
-     *         pedidos has already an ID.
+     * @return the {@link ResponseEntity} with status {@code 201 (Created)} and with body the new pedidos, or with status {@code 400 (Bad Request)} if the pedidos has already an ID.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PostMapping("")
@@ -57,27 +55,25 @@ public class PedidosResource {
         }
         pedidos = pedidosRepository.save(pedidos);
         return ResponseEntity.created(new URI("/api/pedidos/" + pedidos.getId()))
-                .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME,
-                        pedidos.getId().toString()))
-                .body(pedidos);
+            .headers(HeaderUtil.createEntityCreationAlert(applicationName, true, ENTITY_NAME, pedidos.getId().toString()))
+            .body(pedidos);
     }
 
     /**
      * {@code PUT  /pedidos/:id} : Updates an existing pedidos.
      *
-     * @param id      the id of the pedidos to save.
+     * @param id the id of the pedidos to save.
      * @param pedidos the pedidos to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
-     *         the updated pedidos,
-     *         or with status {@code 400 (Bad Request)} if the pedidos is not valid,
-     *         or with status {@code 500 (Internal Server Error)} if the pedidos
-     *         couldn't be updated.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated pedidos,
+     * or with status {@code 400 (Bad Request)} if the pedidos is not valid,
+     * or with status {@code 500 (Internal Server Error)} if the pedidos couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PutMapping("/{id}")
     public ResponseEntity<Pedidos> updatePedidos(
-            @PathVariable(value = "id", required = false) final Long id,
-            @Valid @RequestBody Pedidos pedidos) throws URISyntaxException {
+        @PathVariable(value = "id", required = false) final Long id,
+        @Valid @RequestBody Pedidos pedidos
+    ) throws URISyntaxException {
         LOG.debug("REST request to update Pedidos : {}, {}", id, pedidos);
         if (pedidos.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -92,29 +88,26 @@ public class PedidosResource {
 
         pedidos = pedidosRepository.save(pedidos);
         return ResponseEntity.ok()
-                .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME,
-                        pedidos.getId().toString()))
-                .body(pedidos);
+            .headers(HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, pedidos.getId().toString()))
+            .body(pedidos);
     }
 
     /**
-     * {@code PATCH  /pedidos/:id} : Partial updates given fields of an existing
-     * pedidos, field will ignore if it is null
+     * {@code PATCH  /pedidos/:id} : Partial updates given fields of an existing pedidos, field will ignore if it is null
      *
-     * @param id      the id of the pedidos to save.
+     * @param id the id of the pedidos to save.
      * @param pedidos the pedidos to update.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
-     *         the updated pedidos,
-     *         or with status {@code 400 (Bad Request)} if the pedidos is not valid,
-     *         or with status {@code 404 (Not Found)} if the pedidos is not found,
-     *         or with status {@code 500 (Internal Server Error)} if the pedidos
-     *         couldn't be updated.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the updated pedidos,
+     * or with status {@code 400 (Bad Request)} if the pedidos is not valid,
+     * or with status {@code 404 (Not Found)} if the pedidos is not found,
+     * or with status {@code 500 (Internal Server Error)} if the pedidos couldn't be updated.
      * @throws URISyntaxException if the Location URI syntax is incorrect.
      */
     @PatchMapping(value = "/{id}", consumes = { "application/json", "application/merge-patch+json" })
     public ResponseEntity<Pedidos> partialUpdatePedidos(
-            @PathVariable(value = "id", required = false) final Long id,
-            @NotNull @RequestBody Pedidos pedidos) throws URISyntaxException {
+        @PathVariable(value = "id", required = false) final Long id,
+        @NotNull @RequestBody Pedidos pedidos
+    ) throws URISyntaxException {
         LOG.debug("REST request to partial update Pedidos partially : {}, {}", id, pedidos);
         if (pedidos.getId() == null) {
             throw new BadRequestAlertException("Invalid id", ENTITY_NAME, "idnull");
@@ -128,29 +121,29 @@ public class PedidosResource {
         }
 
         Optional<Pedidos> result = pedidosRepository
-                .findById(pedidos.getId())
-                .map(existingPedidos -> {
-                    if (pedidos.getDescripcion() != null) {
-                        existingPedidos.setDescripcion(pedidos.getDescripcion());
-                    }
-                    if (pedidos.getEstado() != null) {
-                        existingPedidos.setEstado(pedidos.getEstado());
-                    }
+            .findById(pedidos.getId())
+            .map(existingPedidos -> {
+                if (pedidos.getDescripcion() != null) {
+                    existingPedidos.setDescripcion(pedidos.getDescripcion());
+                }
+                if (pedidos.getEstado() != null) {
+                    existingPedidos.setEstado(pedidos.getEstado());
+                }
 
-                    return existingPedidos;
-                })
-                .map(pedidosRepository::save);
+                return existingPedidos;
+            })
+            .map(pedidosRepository::save);
 
         return ResponseUtil.wrapOrNotFound(
-                result,
-                HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, pedidos.getId().toString()));
+            result,
+            HeaderUtil.createEntityUpdateAlert(applicationName, true, ENTITY_NAME, pedidos.getId().toString())
+        );
     }
 
     /**
      * {@code GET  /pedidos} : get all the pedidos.
      *
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list
-     *         of pedidos in body.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of pedidos in body.
      */
     @GetMapping("")
     public List<Pedidos> getAllPedidos() {
@@ -162,8 +155,7 @@ public class PedidosResource {
      * {@code GET  /pedidos/:id} : get the "id" pedidos.
      *
      * @param id the id of the pedidos to retrieve.
-     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body
-     *         the pedidos, or with status {@code 404 (Not Found)}.
+     * @return the {@link ResponseEntity} with status {@code 200 (OK)} and with body the pedidos, or with status {@code 404 (Not Found)}.
      */
     @GetMapping("/{id}")
     public ResponseEntity<Pedidos> getPedidos(@PathVariable("id") Long id) {
@@ -183,7 +175,7 @@ public class PedidosResource {
         LOG.debug("REST request to delete Pedidos : {}", id);
         pedidosRepository.deleteById(id);
         return ResponseEntity.noContent()
-                .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
-                .build();
+            .headers(HeaderUtil.createEntityDeletionAlert(applicationName, true, ENTITY_NAME, id.toString()))
+            .build();
     }
 }

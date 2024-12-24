@@ -5,11 +5,28 @@
     "menu": {
       "home": "Inicio",
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
-      "entities": {
-        "main": "Entidades",
+      "entities1": {
+        "main": "Catalogo",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "pedidos": "Pedidos"
+      },
+      "entities2": {
+        "main": "Inventario",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "productos": "Productos",
+        "compras": "Compras"
+      },
+      "entities3": {
+        "main": "Finanzas",
+        "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
+        "compras": "Compras",
+        "ventas": "Ventas"
+      },
+      "entities4": {
+        "main": "Cocina",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)",
         "pedidos": "Pedidos",
-        "bodega": "Bodega"
+        "productos": "Productos"
       },
       "account": {
         "main": "Cuenta",
